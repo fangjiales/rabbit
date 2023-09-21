@@ -11,3 +11,9 @@ export function findNewApi() {
     url: '/home/new'
   })
 }
+
+export function getHotApi() {
+  return httpInstance({
+    url: '/home/hot'
+  })
+}

@@ -6,11 +6,6 @@
   <HomeNew />
   <HomeHot />
   <HomeProduct />
-  <HomePanel title="a" sub-title="aa">
-    <div>
-      this is a model
-    </div>
-  </HomePanel>
 </template>
 
 <script setup>
@@ -19,5 +14,4 @@ import HomeBanner from './components/HomeBanner.vue'
 import HomeHot from './components/HomeHot.vue'
 import HomeNew from './components/HomeNew.vue'
 import HomeProduct from './components/HomeProduct.vue'
-import HomePanel from './components/HomePanel.vue'
 </script>
