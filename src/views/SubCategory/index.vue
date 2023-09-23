@@ -26,6 +26,21 @@ const getGoodsList = async () => {
 }
 onMounted(() => getGoodsList())
 
+const tabChange = () => {
+  reqData.value.page = 1
+  getGoodsList()
+}
+
+const disabled = ref(false)
+const load = async () => {
+  reqData.value.page++
+  const res = await getSubCategoryApi(reqData.value)
+  goodsList.value = [...goodsList.value, ...res.result.items]
+  if (res.result.items.length === 0) {
+    disabled.value = true
+  }
+}
+
 </script>
 
 <template>
@@ -40,12 +55,12 @@ onMounted(() => getGoodsList())
       </el-breadcrumb>
     </div>
     <div class="sub-container">
-      <el-tabs>
+      <el-tabs v-model="reqData.sortField" @tab-change="tabChange">
         <el-tab-pane label="最新商品" name="publishTime"></el-tab-pane>
         <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
         <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>
       </el-tabs>
-      <div class="body">
+      <div class="body" v-infinite-scroll="load" :infinite-scroll-disabled="disabled">
         <GoodsItem v-for="item in goodsList" :good="item" :key="item.id"></GoodsItem>
       </div>
     </div>
