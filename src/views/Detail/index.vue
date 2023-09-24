@@ -24,7 +24,7 @@ onMounted(() => getDetail())
           </el-breadcrumb-item>
           <el-breadcrumb-item :to="{ path: `/category/sub/${detail.categories[0].id}` }">{{ detail.categories[0].name }}
           </el-breadcrumb-item>
-          <el-breadcrumb-item>抓绒保暖，毛毛虫子儿童运动鞋</el-breadcrumb-item>
+          <el-breadcrumb-item>{{ detail.name }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <!-- 商品信息 -->
@@ -116,8 +116,8 @@ onMounted(() => getDetail())
             </div>
             <!-- 24热榜+专题推荐 -->
             <div class="goods-aside">
-              <DetailHot />
-              <DetailHot />
+              <DetailHot :hot-type="1" />
+              <DetailHot :hot-type="2" />
             </div>
           </div>
         </div>
