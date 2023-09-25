@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '@/router'
 import 'element-plus/es/components/message/style/css'
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/stores/user'
@@ -23,10 +24,15 @@ httpInstance.interceptors.request.use(config => {
 
 // 响应拦截器
 httpInstance.interceptors.response.use(res => res.data, err => {
+  const userStore = useUserStore()
   ElMessage({
     type: 'warning',
     message: err.response.data.msg
   })
+  if (err.response.status === 401) {
+    userStore.cleanUserInfo()
+    router.push('/login')
+  }
   return Promise.reject(err)
 })
 
