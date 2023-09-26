@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { getDetailApi } from '@/apis/detail'
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '@/stores/cartStore'
 import DetailHot from './components/DetailHot.vue'
 
 const route = useRoute()
@@ -396,4 +396,4 @@ const addCart = () => {
 .bread-container {
   padding: 25px 0;
 }
-</style>
+</style>@/stores/cartStore

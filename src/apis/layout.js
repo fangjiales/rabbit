@@ -1,4 +1,4 @@
-import httpInstance from "@/utils/http"
+import httpInstance from "@/utils/https"
 
 export function getCategoryApi() {
   return httpInstance({

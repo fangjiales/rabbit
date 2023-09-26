@@ -1,4 +1,4 @@
-import request from '@/utils/http'
+import request from '@/utils/https'
 
 export function getTopCategroyApi(id) {
   return request({

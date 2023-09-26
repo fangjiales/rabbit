@@ -1,4 +1,4 @@
-import request from '@/utils/http'
+import request from '@/utils/https'
 
 
 export const insertCartApi = ({ skuId, count }) => {
@@ -15,5 +15,15 @@ export const insertCartApi = ({ skuId, count }) => {
 export const findNewCartListApi = () => {
   return request({
     url: '/member/cart'
+  })
+}
+
+export const deleteCartApi = (ids) => {
+  return request({
+    url: '/member/cart',
+    method: 'DELETE',
+    data: {
+      ids
+    }
   })
 }

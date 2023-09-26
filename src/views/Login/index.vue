@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import 'element-plus/es/components/message/style/css'
 import { ElMessage } from 'element-plus'
-import { useUserStore } from '@/stores/user'
+import { useUserStore } from '@/stores/userStore'
 
 const router = useRouter()
 
@@ -343,4 +343,4 @@ const doLogin = () => {
   width: 100%;
   color: #fff;
 }
-</style>
+</style>@/stores/userStore

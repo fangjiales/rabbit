@@ -1,4 +1,4 @@
-import request from "@/utils/http"
+import request from "@/utils/https"
 
 export const getDetailApi = (id) => {
   return request({

@@ -1,5 +1,5 @@
 <script setup>
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '@/stores/cartStore'
 
 const cartStore = useCartStore()
 
@@ -217,4 +217,4 @@ const allCheck = (selected) => {
   }
 
 }
-</style>
+</style>@/stores/cartStore

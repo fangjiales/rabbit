@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useScroll } from '@vueuse/core'
-import { useCategoryStore } from '@/stores/category'
+import { useCategoryStore } from '@/stores/categoryStore'
 
 const categoryStore = useCategoryStore()
 onMounted(() => categoryStore.getCategory())
@@ -116,4 +116,4 @@ const { y } = useScroll(window)
     }
   }
 }
-</style>
+</style>@/stores/categoryStore

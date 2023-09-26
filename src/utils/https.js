@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '@/router'
 import 'element-plus/es/components/message/style/css'
 import { ElMessage } from 'element-plus'
-import { useUserStore } from '@/stores/user'
+import { useUserStore } from '@/stores/userStore'
 
 // axios 基础封装
 const httpInstance = axios.create({
