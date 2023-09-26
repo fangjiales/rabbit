@@ -27,3 +27,11 @@ export const deleteCartApi = (ids) => {
     }
   })
 }
+
+export const mergeCartApi = (data) => {
+  return request({
+    url: '/member/cart/merge',
+    method: 'POST',
+    data
+  })
+}

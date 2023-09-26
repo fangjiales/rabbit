@@ -16,6 +16,10 @@ export const useCartStore = defineStore(
       cartList.value = res.result
     }
 
+    const clearCart = () => {
+      cartList.value = []
+    }
+
     const addCart = async (goods) => {
       if (isLogin.value) {
         await insertCartApi(goods)
@@ -66,7 +70,9 @@ export const useCartStore = defineStore(
       addCart,
       delCart,
       singleCheck,
-      allCheck
+      allCheck,
+      clearCart,
+      updateNewList
     }
   },
   {
