@@ -17,6 +17,10 @@ export const useCartStore = defineStore(
     const delCart = (skuId) => {
       cartList.value = cartList.value.filter(item => item.skuId !== skuId)
     }
+    const singleCheck = (skuId, selected) => {
+      const item = cartList.value.find(item => item.skuId === skuId)
+      item.selected = selected
+    }
     const allCount = computed(() => cartList.value.reduce((u, v) => u + v.count, 0))
     const allPrice = computed(() => cartList.value.reduce((u, v) => u + (v.count * v.price), 0))
     return {
@@ -24,7 +28,8 @@ export const useCartStore = defineStore(
       allCount,
       allPrice,
       addCart,
-      delCart
+      delCart,
+      singleCheck
     }
   },
   {
