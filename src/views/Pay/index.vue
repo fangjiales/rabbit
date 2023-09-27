@@ -1,5 +1,24 @@
 <script setup>
-const payInfo = {}
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { getOrderApi } from '@/apis/pay'
+
+
+const route = useRoute()
+const payInfo = ref({})
+
+const getPayInfo = async () => {
+  const res = await getOrderApi(route.query.id)
+  payInfo.value = res.result
+}
+
+onMounted(() => getPayInfo())
+
+// 支付地址
+const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net/'
+const backURL = 'http://127.0.0.1:5173/paycallback'
+const redirectUrl = encodeURIComponent(backURL)
+const payUrl = `${baseURL}pay/aliPay?orderId=${route.query.id}&redirect=${redirectUrl}`
 </script>
 
 
